@@ -1,0 +1,13 @@
+#bash
+
+CFL=`ls -l | wc -l`
+
+#py
+
+import os, os.path
+
+cfl = len([name for name in os.listdir('.') if os.path.isfile(name)])
+
+# remember that bash variables aren't ints...
+# although it would be awesome if that weren't so
+print str(int(CFL) == cfl)

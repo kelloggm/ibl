@@ -29,7 +29,7 @@ def get_rgvar_sh(rgvarToGet):
     return st
 
 def save_rgvar_sh(rgvarToSave):
-    st = "\nrm tmp-store;touch tmp-store;"
+    st = "\nrm -f tmp-store;touch tmp-store;"
     for var in rgvarToSave:
         st += "echo $" + var + " >> tmp-store;"
 

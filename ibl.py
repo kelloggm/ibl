@@ -65,7 +65,7 @@ def get_rgvar(sl):
     elif sl in rgslSh:
         return iblsh.get_rgvar_sh(rgvarToGet)
     else:
-        print "usl doesn't support " + sl + " yet!"
+        print "ibl doesn't support " + sl + " yet!"
         exit(1)
 
 def save_rgvar(sl):
@@ -85,7 +85,7 @@ def run_code(sl, stToRun):
     stToRun = get_rgvar(sl) + stToRun + save_rgvar(sl)
     inp = mpsl_inp[sl]
     
-    subprocess.call("rm tmp", shell=True)
+    subprocess.call("rm -f tmp", shell=True)
     with open("tmp", "w") as fd2:
         fd2.write(stToRun)
 
@@ -97,7 +97,7 @@ with open(fl) as fd:
     
     for ln in fd:
         assign(ln, slCur)
-        if ln.strip().startswith("#"):
+        if ln.strip().startswith("#") and len(ln.strip().split(" ")) == 1:
             sl = slCur
             slCur = ln[1:].strip()
             
