@@ -1,5 +1,10 @@
 # ignore emacs backups
 *~
+#*#
 
 # ignore compiled python libraries
 *.pyc
+
+# ignore temporaries I create
+tmp
+tmp-store

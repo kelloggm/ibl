@@ -13,7 +13,7 @@ def assign_py(ln, rgvarToSave):
     iblsh.assign_sh(ln, rgvarToSave)
 
 def get_rgvar_py(rgvarToGet):
-    st = "\nwith open(\"tmp-store\") as fd:\n"
+    st = "\nwith open(\".tmp-store\") as fd:\n"
     st += "\trgln=[]\n\tfor ln in fd:\n\t\trgln.append(ln)\n"
     iln = 0
     for var in rgvarToGet:
@@ -23,7 +23,7 @@ def get_rgvar_py(rgvarToGet):
     return st
 
 def save_rgvar_py(rgvarToSave):
-    st = "\nwith open(\"tmp-store\", \"w\") as fd:\n"
+    st = "\nwith open(\".tmp-store\", \"w\") as fd:\n"
     for var in rgvarToSave:
         st += "\t"
         st += "fd.write(str(" + var + ") + \"\\n\")"

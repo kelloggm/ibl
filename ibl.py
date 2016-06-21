@@ -85,11 +85,11 @@ def run_code(sl, stToRun):
     stToRun = get_rgvar(sl) + stToRun + save_rgvar(sl)
     inp = mpsl_inp[sl]
     
-    subprocess.call("rm -f tmp", shell=True)
-    with open("tmp", "w") as fd2:
+    subprocess.call("rm -f .tmp", shell=True)
+    with open(".tmp", "w") as fd2:
         fd2.write(stToRun)
 
-    subprocess.call(inp + " tmp " + reduce(lambda a,b: a + b + " ", sys.argv[2:], ""), shell=True)
+    subprocess.call(inp + " .tmp " + reduce(lambda a,b: a + b + " ", sys.argv[2:], ""), shell=True)
 
 with open(fl) as fd:
 
@@ -117,4 +117,4 @@ with open(fl) as fd:
 
         
 if not FDEBUG:
-    subprocess.call("rm -f tmp; rm -f tmp-store", shell=True)
+    subprocess.call("rm -f .tmp; rm -f .tmp-store", shell=True)

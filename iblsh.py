@@ -23,15 +23,15 @@ def get_rgvar_sh(rgvarToGet):
     iln = 1
     st = "\n"
     for var in rgvarToGet:
-        st += var.strip() + "=`sed '"+ str(iln) + "q;d' tmp-store`\n"
+        st += var.strip() + "=`sed '"+ str(iln) + "q;d' .tmp-store`\n"
         iln += 1
         
     return st
 
 def save_rgvar_sh(rgvarToSave):
-    st = "\nrm -f tmp-store;touch tmp-store;"
+    st = "\nrm -f .tmp-store;touch .tmp-store;"
     for var in rgvarToSave:
-        st += "echo $" + var + " >> tmp-store;"
+        st += "echo $" + var + " >> .tmp-store;"
 
     return st
 
