@@ -1,0 +1,9 @@
+#bash
+
+x=10
+y=5
+
+#python
+
+print x
+print y

@@ -1,0 +1,9 @@
+#py
+
+x = 10
+y =5
+
+#bash
+
+echo $x
+echo $y
