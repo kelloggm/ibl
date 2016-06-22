@@ -18,7 +18,11 @@ def get_rgvar_py(rgvarToGet):
     iln = 0
     for var in rgvarToGet:
         st += var + " = rgln[" + str(iln) + "].strip()\n" # should we be keeping type info?
+        # try to convert each variable to an int so that you can use it the way you expect an
+        # int to work in python
+        st += "try:\n\t"+var+"=int("+var+")\nexcept:\n\tpass\n"
         iln += 1
+        
         
     return st
 

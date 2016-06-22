@@ -1,0 +1,12 @@
+#bash
+
+x=5
+y=10
+
+#py
+
+z = x * y
+
+#bash
+
+echo $z
